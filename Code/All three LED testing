@@ -1,0 +1,39 @@
+#include <Adafruit_NeoPixel.h>
+
+#define NUM_LEDS 8 // 8 LEDs per ring
+#define BRIGHTNESS 40 // Lowered slightly to save total power consumption
+
+// Initialize 3 distinct ring objects on 3 separate pins
+Adafruit_NeoPixel ring1(NUM_LEDS, 5, NEO_GRB + NEO_KHZ800); // Pin D5
+Adafruit_NeoPixel ring2(NUM_LEDS, 18, NEO_GRB + NEO_KHZ800); // Pin D18
+Adafruit_NeoPixel ring3(NUM_LEDS, 19, NEO_GRB + NEO_KHZ800); // Pin D19
+
+void setup() {
+ring1.begin(); ring1.setBrightness(BRIGHTNESS); ring1.show();
+ring2.begin(); ring2.setBrightness(BRIGHTNESS); ring2.show();
+ring3.begin(); ring3.setBrightness(BRIGHTNESS); ring3.show();
+}
+
+void loop() {
+// Example: Staggered Color Chase across the 3 independent rings
+multiChase(ring1.Color(255, 0, 0), 100); // Ring 1 chases Red
+multiChase(ring2.Color(0, 255, 0), 100); // Ring 2 chases Green
+multiChase(ring3.Color(0, 0, 255), 100); // Ring 3 chases Blue
+}
+
+// Function to smoothly iterate through the pixels on all rings
+void multiChase(uint32_t color, int delayTime) {
+for (int i = 0; i < NUM_LEDS; i++) {
+// Clear previous frames
+ring1.clear(); ring2.clear(); ring3.clear();
+
+// Assign colors to the current pixel index
+ring1.setPixelColor(i, color);
+ring2.setPixelColor(i, color);
+ring3.setPixelColor(i, color);
+
+// Push data to all three pins
+ring1.show(); ring2.show(); ring3.show();
+delay(delayTime);
+}
+}
