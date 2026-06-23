@@ -1,0 +1,25 @@
+#include <Adafruit_NeoPixel.h>
+
+#define NUM_LEDS 8
+#define BRIGHTNESS 40
+#define LED_PIN 19
+
+Adafruit_NeoPixel ring(NUM_LEDS, LED_PIN, NEO_GRB + NEO_KHZ800);
+
+void setup() {
+  ring.begin();
+  ring.setBrightness(BRIGHTNESS);
+
+  // Turn all LEDs off
+  ring.clear();
+
+  // Light up LED 0 in red
+  ring.setPixelColor(0, ring.Color(255, 0, 0));
+
+  // Update the ring
+  ring.show();
+}
+
+void loop() {
+  // Nothing to do - the LED stays on
+}
