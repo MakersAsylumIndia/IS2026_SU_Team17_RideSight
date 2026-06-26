@@ -10,13 +10,13 @@ Future Prospects-
 This project could be further developed by integrating additional navigation cues and expanding compatibility with different navigation applications. In the future, the system could be adopted by delivery companies to improve rider safety and reduce accidents caused by distracted driving.
 
 Contents of all the folders-
-CAD contains all of the files of the components which we 3D printed/laser cut for our project.
-Code contains the codes for our project.
-Documentation contains the steps to making this project.
-Electronics contains the circuit diagram with all the components which we used for our project.
-Photos_Videos contains photos and videos of the working prototype.
-Reference_Data contains all the references that we used.
-BOM.csv contains all the electrical components that we used.
+1. CAD contains all of the files of the components which we 3D printed/laser cut for our project.
+2. Code contains the codes for our project.
+3. Documentation contains the steps to making this project.
+4. Electronics contains the circuit diagram with all the components which we used for our project.
+5. Photos_Videos contains photos and videos of the working prototype.
+6. Reference_Data contains all the references that we used.
+7. BOM.csv contains all the electrical components that we used.
 
 ## License
 
